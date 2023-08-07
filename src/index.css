@@ -31,4 +31,17 @@ nav {
     flex-grow: 1;
 }
 
+.cart {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    cursor: pointer;
+    z-index: 5;
+    padding: 1rem;
+}
+
+.cart-quantity {
+
+}
+
 
