@@ -11,7 +11,7 @@ function Shop() {
     const [loading, setLoading] = useState(true);
 
     const [order, setOrder] = useState([]);
-    const [isBasketShow, setBasketShow] = useState(false)
+    const [isBasketShow, setBasketShow] = useState(false);
 
     useEffect(function getGoods() {
         fetch(API_URL, {
@@ -28,7 +28,6 @@ function Shop() {
 
     const addToBasket = (item) => {
         const itemIndex = order.findIndex((orderItem) => orderItem.id === item.id);
-
         if (itemIndex < 0) {
             const newItem = {
                 ...item,
@@ -49,12 +48,46 @@ function Shop() {
 
             setOrder(newOrder);
         }
-
     };
 
     const handleBasketShow = () => {
-        setBasketShow(!isBasketShow)
-    }
+        setBasketShow(!isBasketShow);
+    };
+
+    const incrementQuantity = (itemId) => {
+        const newOrder = order.map((el) => {
+            if (el.id === itemId) {
+                const newQuantity = el.quantity + 1;
+                return {
+                    ...el,
+                    quantity: newQuantity,
+                };
+            } else {
+                return el;
+            }
+        });
+        setOrder(newOrder);
+    };
+
+    const decrementQuantity = (itemId) => {
+        const newOrder = order.map((el) => {
+            if (el.id === itemId) {
+                const newQuantity = el.quantity - 1;
+                return {
+                    ...el,
+                    quantity: newQuantity >= 0 ? newQuantity : 0,
+                };
+            } else {
+                return el;
+            }
+        });
+        setOrder(newOrder);
+    };
+
+    const removeFromBasket = (itemId) => {
+        const newOrder = order.filter((el) => el.id !== itemId);
+        setOrder(newOrder);
+    };
 
     return (
         <main className = "container content">
@@ -64,9 +97,15 @@ function Shop() {
             ) : (
                 <GoodList goods = {goods} addToBasket = {addToBasket}/>
             )}
-            {
-                isBasketShow && <BasketList order={order} handleBasketShow={handleBasketShow}/>
-            }
+            {isBasketShow && (
+                <BasketList
+                    order = {order}
+                    handleBasketShow = {handleBasketShow}
+                    removeFromBasket = {removeFromBasket}
+                    incrementQuantity = {incrementQuantity}
+                    decrementQuantity = {decrementQuantity}
+                />
+            )}
         </main>
     );
 }

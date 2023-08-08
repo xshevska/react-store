@@ -48,7 +48,6 @@ nav {
 }
 
 .cart-quantity {
-
 }
 
 .basket-list {
@@ -79,4 +78,21 @@ nav {
 
 .basket-delete {
     cursor: pointer;
+}
+
+@keyframes show {
+    from {
+        top: 70%;
+        opacity: 0;
+    }
+    to {
+        top: 50%;
+        opacity: 1;
+    }
+}
+
+.basket-quantity{
+    cursor: pointer;
+    vertical-align: middle;
+    color: #26a69a;
 }
