@@ -4,11 +4,14 @@ import {GoodList} from "./GoodList";
 
 import {Preloader} from "./Preloader";
 import {Cart} from "./Cart";
+import {BasketList} from "./BasketList";
 
 function Shop() {
     const [goods, setGoods] = useState([]);
     const [loading, setLoading] = useState(true);
+
     const [order, setOrder] = useState([]);
+    const [isBasketShow, setBasketShow] = useState(false)
 
     useEffect(function getGoods() {
         fetch(API_URL, {
@@ -49,14 +52,21 @@ function Shop() {
 
     };
 
+    const handleBasketShow = () => {
+        setBasketShow(!isBasketShow)
+    }
+
     return (
         <main className = "container content">
-            <Cart quantity = {order.length}/>
+            <Cart quantity = {order.length} handleBasketShow = {handleBasketShow}/>
             {loading ? (
                 <Preloader/>
             ) : (
                 <GoodList goods = {goods} addToBasket = {addToBasket}/>
             )}
+            {
+                isBasketShow && <BasketList order={order}/>
+            }
         </main>
     );
 }
