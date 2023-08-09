@@ -1,11 +1,11 @@
 import {useState, useEffect} from "react";
 import {API_KEY, API_URL} from "../config";
-import {GoodList} from "./GoodList";
+import {GoodList} from "./products/GoodList";
 
 import {Preloader} from "./Preloader";
-import {Cart} from "./Cart";
-import {BasketList} from "./BasketList";
-import {Alert} from './Alert'
+import {Cart} from "./cart/Cart";
+import {BasketList} from "./cart/BasketList";
+import {Alert} from './cart/Alert'
 
 function Shop() {
     const [goods, setGoods] = useState([]);
