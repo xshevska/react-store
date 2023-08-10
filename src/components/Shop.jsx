@@ -13,7 +13,6 @@ function Shop() {
 
     const [order, setOrder] = useState([]);
     const [isBasketShow, setBasketShow] = useState(false);
-
     const [alertName, setAlertName] = useState('');
 
     useEffect(function getGoods() {
