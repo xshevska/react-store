@@ -68,6 +68,7 @@ function Shop() {
                 };
             } else {
                 return el;
+                
             }
         });
         setOrder(newOrder);

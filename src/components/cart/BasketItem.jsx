@@ -14,10 +14,6 @@ function BasketItem(props) {
 
     
 
-    //all value get
-    // const value = useContext(ShopContext)
-
-    //if you need only one key
     const {example} = useContext(ShopContext)
     console.log(example)
 
