@@ -11,7 +11,6 @@ function App() {
             <ContextProvider>
                 <Shop/>
             </ContextProvider>
-
             <Footer/>
         </>
     );
