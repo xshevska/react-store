@@ -42,6 +42,13 @@ export function reducer(state, { type, payload }) {
         alertName: "",
       };
 
+    case "SET_GOODS":
+      return {
+        ...state,
+        goods: payload,
+        loading: false
+      }  
+
     case "REMOVE_FROM_BASKET":
       return {
         ...state,
