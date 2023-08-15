@@ -1,5 +1,5 @@
-import { useContext } from "react";
-import { ShopContext } from "../../context";
+import {useContext} from "react";
+import {ShopContext} from "../../context";
 
 function GoodsItem(props) {
     const {
@@ -11,7 +11,6 @@ function GoodsItem(props) {
     } = props;
 
     const {addToBasket} = useContext(ShopContext)
-
 
 
     return (

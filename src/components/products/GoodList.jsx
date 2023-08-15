@@ -1,19 +1,20 @@
-import { GoodsItem } from "./GoodsItem";
+import {GoodsItem} from "./GoodsItem";
+import {useContext} from "react";
+import {ShopContext} from "../../context";
 
-function GoodList(props) {
-  const { goods = [] ,
-  } = props;
+function GoodList() {
+    const {goods = []} = useContext(ShopContext);
 
-  if (!goods.length) {
-    return <h3>Nothing here</h3>;
-  }
-  return (
-    <div className="goods">
-      {goods.map((item) => (
-        <GoodsItem key={item.id} {...item} />
-      ))}
-    </div>
-  );
+    if (!goods.length) {
+        return <h3>Nothing here</h3>;
+    }
+    return (
+        <div className = "goods">
+            {goods.map((item) => (
+                <GoodsItem key = {item.id} {...item} />
+            ))}
+        </div>
+    );
 }
 
-export { GoodList };
+export {GoodList};
