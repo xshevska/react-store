@@ -35,6 +35,7 @@ nav {
     position: fixed;
     bottom: 2rem;
     right: 2rem;
+
     cursor: pointer;
     z-index: 5;
     padding: 1rem;
@@ -45,9 +46,6 @@ nav {
         top: 5rem;
         bottom: unset;
     }
-}
-
-.cart-quantity {
 }
 
 .basket-list {

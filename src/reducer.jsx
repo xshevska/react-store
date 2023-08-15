@@ -47,8 +47,8 @@ export function reducer(state, {type, payload}) {
                 ...state,
                 goods: payload || [],
                 //if payload is undefined , we will make an empty array
-                loading: false
-            }
+                loading: false,
+            };
 
         case "REMOVE_FROM_BASKET":
             return {
@@ -58,7 +58,7 @@ export function reducer(state, {type, payload}) {
 
         case "ADD_TO_BASKET": {
             const itemIndex = state.order.findIndex(
-                (orderItem) => orderItem.id === payload.id
+                (orderItem) => orderItem.id === payload.id,
             );
 
             let newOrder = null;

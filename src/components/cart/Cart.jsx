@@ -1,7 +1,7 @@
 import {useContext} from "react";
 import {ShopContext} from "../../context";
 
-function Cart(props) {
+function Cart() {
     const {order, handleBasketShow = Function.prototype} =
         useContext(ShopContext);
 
