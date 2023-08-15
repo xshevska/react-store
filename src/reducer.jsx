@@ -6,6 +6,8 @@ export function reducer(state, { type, payload }) {
         isBasketShow: !state.isBasketShow,
       };
     case "DECREMENT_QUANTITY":
+
+      
       return {
         ...state,
         order: state.order.map((el) => {
